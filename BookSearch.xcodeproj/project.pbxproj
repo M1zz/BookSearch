@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A533FC302602C27E00A207C7 /* BSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FC2F2602C27E00A207C7 /* BSButton.swift */; };
+		A533FC402602C4E300A207C7 /* BSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FC3F2602C4E300A207C7 /* BSTextField.swift */; };
 		A5DD2C4025FCBC700078F916 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD2C3F25FCBC700078F916 /* AppDelegate.swift */; };
 		A5DD2C4225FCBC700078F916 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD2C4125FCBC700078F916 /* SceneDelegate.swift */; };
 		A5DD2C4925FCBC700078F916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5DD2C4825FCBC700078F916 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		A533FC2F2602C27E00A207C7 /* BSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSButton.swift; sourceTree = "<group>"; };
+		A533FC3F2602C4E300A207C7 /* BSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTextField.swift; sourceTree = "<group>"; };
 		A5DD2C3C25FCBC700078F916 /* BookSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD2C3F25FCBC700078F916 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5DD2C4125FCBC700078F916 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		A533FC3E2602C47D00A207C7 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
+				A533FC3F2602C4E300A207C7 /* BSTextField.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A533FC402602C4E300A207C7 /* BSTextField.swift in Sources */,
 				A5DD2C8725FCC25E0078F916 /* SearchViewController.swift in Sources */,
 				A5DD2C4025FCBC700078F916 /* AppDelegate.swift in Sources */,
 				A533FC302602C27E00A207C7 /* BSButton.swift in Sources */,
