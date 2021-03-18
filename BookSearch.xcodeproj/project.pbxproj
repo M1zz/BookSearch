@@ -14,6 +14,11 @@
 		A533FCB42602FC0D00A207C7 /* BSAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCB32602FC0D00A207C7 /* BSAlertViewController.swift */; };
 		A533FCBD2602FC5E00A207C7 /* BSTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCBC2602FC5E00A207C7 /* BSTitleLabel.swift */; };
 		A533FCC52602FE6C00A207C7 /* BSBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCC42602FE6C00A207C7 /* BSBodyLabel.swift */; };
+		A533FCCB2603146300A207C7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCCA2603146300A207C7 /* NetworkManager.swift */; };
+		A533FCD42603161D00A207C7 /* BSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCD32603161D00A207C7 /* BSError.swift */; };
+		A533FCDA2603166E00A207C7 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCD92603166E00A207C7 /* Book.swift */; };
+		A533FCE02603170500A207C7 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCDF2603170500A207C7 /* BookDetail.swift */; };
+		A533FCE52603173A00A207C7 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCE42603173A00A207C7 /* SearchResult.swift */; };
 		A5DD2C4025FCBC700078F916 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD2C3F25FCBC700078F916 /* AppDelegate.swift */; };
 		A5DD2C4225FCBC700078F916 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD2C4125FCBC700078F916 /* SceneDelegate.swift */; };
 		A5DD2C4925FCBC700078F916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5DD2C4825FCBC700078F916 /* Assets.xcassets */; };
@@ -48,6 +53,11 @@
 		A533FCB32602FC0D00A207C7 /* BSAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSAlertViewController.swift; sourceTree = "<group>"; };
 		A533FCBC2602FC5E00A207C7 /* BSTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTitleLabel.swift; sourceTree = "<group>"; };
 		A533FCC42602FE6C00A207C7 /* BSBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSBodyLabel.swift; sourceTree = "<group>"; };
+		A533FCCA2603146300A207C7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A533FCD32603161D00A207C7 /* BSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSError.swift; sourceTree = "<group>"; };
+		A533FCD92603166E00A207C7 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		A533FCDF2603170500A207C7 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
+		A533FCE42603173A00A207C7 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		A5DD2C3C25FCBC700078F916 /* BookSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD2C3F25FCBC700078F916 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5DD2C4125FCBC700078F916 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +151,32 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		A533FCC92603144100A207C7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A533FCCA2603146300A207C7 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A533FCD22603160C00A207C7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A533FCD32603161D00A207C7 /* BSError.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A533FCD82603165000A207C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A533FCD92603166E00A207C7 /* Book.swift */,
+				A533FCDF2603170500A207C7 /* BookDetail.swift */,
+				A533FCE42603173A00A207C7 /* SearchResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A5DD2C3325FCBC700078F916 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +200,9 @@
 		A5DD2C3E25FCBC700078F916 /* BookSearch */ = {
 			isa = PBXGroup;
 			children = (
+				A533FCD82603165000A207C7 /* Model */,
+				A533FCD22603160C00A207C7 /* Utilities */,
+				A533FCC92603144100A207C7 /* Managers */,
 				A533FC2E2602C26600A207C7 /* CustomViews */,
 				A5DD2C8525FCC2440078F916 /* Screens */,
 				A5DD2C7525FCBD1B0078F916 /* Support */,
@@ -342,12 +381,17 @@
 				A533FCAE2602FB4A00A207C7 /* BSAlertContainerView.swift in Sources */,
 				A533FC402602C4E300A207C7 /* BSTextField.swift in Sources */,
 				A533FCB42602FC0D00A207C7 /* BSAlertViewController.swift in Sources */,
+				A533FCD42603161D00A207C7 /* BSError.swift in Sources */,
 				A5DD2C8725FCC25E0078F916 /* SearchViewController.swift in Sources */,
+				A533FCE02603170500A207C7 /* BookDetail.swift in Sources */,
+				A533FCCB2603146300A207C7 /* NetworkManager.swift in Sources */,
+				A533FCE52603173A00A207C7 /* SearchResult.swift in Sources */,
 				A5DD2C4025FCBC700078F916 /* AppDelegate.swift in Sources */,
 				A533FC302602C27E00A207C7 /* BSButton.swift in Sources */,
 				A5DD2C4225FCBC700078F916 /* SceneDelegate.swift in Sources */,
 				A533FCC52602FE6C00A207C7 /* BSBodyLabel.swift in Sources */,
 				A533FCA82602F55E00A207C7 /* BookListViewController.swift in Sources */,
+				A533FCDA2603166E00A207C7 /* Book.swift in Sources */,
 				A533FCBD2602FC5E00A207C7 /* BSTitleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -501,7 +545,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

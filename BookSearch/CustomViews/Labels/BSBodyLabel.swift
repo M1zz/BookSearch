@@ -28,9 +28,15 @@ class BSBodyLabel: UILabel {
     
     
     private func configure() {
-        textColor = .secondaryLabel
+        if #available(iOS 13.0, *) {
+            textColor = .secondaryLabel
+        } else {
+            textColor = .systemGray
+        }
         font = UIFont.preferredFont(forTextStyle: .body)
-        adjustsFontForContentSizeCategory = true
+        if #available(iOS 10.0, *) {
+            adjustsFontForContentSizeCategory = true
+        }
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.75
         lineBreakMode = .byWordWrapping

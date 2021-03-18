@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9503AA38-9FB8-45CF-A4CE-AE829F5CE372"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7128AEEF-6AEF-4E71-8F57-2A03F249043C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookSearch/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "getBookLists(for:page:completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1BF42D14-19EC-4491-852C-02AEED04F8F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookSearch/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "getBookLists(for:page:completed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1BF42D14-19EC-4491-852C-02AEED04F8F2 - cd7a9975aa7fd96b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BookSearch.NetworkManager.getBookLists(for: Swift.String, page: Swift.Int, completed: (Swift.Result&lt;Swift.Array&lt;BookSearch.Book&gt;, BookSearch.BSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BookSearch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hyunho.lee/Documents/workspace/git/BookSearch/BookSearch/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "964">
+               </Location>
+               <Location
+                  uuid = "1BF42D14-19EC-4491-852C-02AEED04F8F2 - 6b0c26f536d24c88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BookSearch.NetworkManager.getBookLists(for: Swift.String, page: Swift.Int, completed: (Swift.Result&lt;Swift.Array&lt;BookSearch.Book&gt;, BookSearch.BSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BookSearch"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hyunho.lee/Documents/workspace/git/BookSearch/BookSearch/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -25,16 +25,30 @@ class BSTextField: UITextField {
         
         layer.cornerRadius = 10
         layer.borderWidth = 2
-        layer.borderColor = UIColor.systemGray4.cgColor
+        if #available(iOS 13.0, *) {
+            layer.borderColor = UIColor.systemGray4.cgColor
+        } else {
+            layer.borderColor = UIColor.systemGray.cgColor
+        }
         
-        textColor = .label
-        tintColor = .label
+        if #available(iOS 13.0, *) {
+            textColor = .label
+        } else {
+            textColor = .black
+        }
+        if #available(iOS 13.0, *) {
+            tintColor = .label
+        } else {
+            tintColor = .black
+        }
         textAlignment = .center
         font = UIFont.preferredFont(forTextStyle: .title2)
         adjustsFontSizeToFitWidth = true
         minimumFontSize = 12
         
-        backgroundColor = .tertiarySystemBackground
+        if #available(iOS 13.0, *) {
+            backgroundColor = .tertiarySystemBackground
+        }
         autocorrectionType = .no
         returnKeyType = .go
         clearButtonMode = .whileEditing

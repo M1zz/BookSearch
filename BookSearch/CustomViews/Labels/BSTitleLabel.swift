@@ -29,7 +29,11 @@ class BSTitleLabel: UILabel {
     
     
     private func configure() {
-        textColor = .label
+        if #available(iOS 13.0, *) {
+            textColor = .label
+        } else {
+            textColor = .black
+        }
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.9
         lineBreakMode = .byTruncatingTail

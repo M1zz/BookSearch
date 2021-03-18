@@ -29,6 +29,7 @@ class BookListViewController: UIViewController {
         super.viewDidLoad()
         
         configureViewController()
+        getBookLists(bookname: bookname, page: 1)
     }
     
     
@@ -39,7 +40,29 @@ class BookListViewController: UIViewController {
     
     
     private func configureViewController() {
-        view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.prefersLargeTitles = true
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
+        
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
+    }
+    
+    private func getBookLists(bookname: String, page: Int) {
+        NetworkManager.shared.getBookLists(for: bookname, page: page) { [weak self] result in
+            guard self != nil else { return }
+            
+            switch result {
+            case .success(let books):
+                //self.updateUI(with: followers)
+                print(books)
+            case .failure(let error):
+                //self.presentGFAlertOnMainThread(title: "문제가 생겼습니다.", message: error.rawValue, buttonTitle: "Ok")
+                print(error.rawValue)
+            }
+        }
     }
 }
