@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		A533FC302602C27E00A207C7 /* BSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FC2F2602C27E00A207C7 /* BSButton.swift */; };
 		A533FC402602C4E300A207C7 /* BSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FC3F2602C4E300A207C7 /* BSTextField.swift */; };
+		A533FCA82602F55E00A207C7 /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCA72602F55E00A207C7 /* BookListViewController.swift */; };
+		A533FCAE2602FB4A00A207C7 /* BSAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCAD2602FB4A00A207C7 /* BSAlertContainerView.swift */; };
+		A533FCB42602FC0D00A207C7 /* BSAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCB32602FC0D00A207C7 /* BSAlertViewController.swift */; };
+		A533FCBD2602FC5E00A207C7 /* BSTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCBC2602FC5E00A207C7 /* BSTitleLabel.swift */; };
+		A533FCC52602FE6C00A207C7 /* BSBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FCC42602FE6C00A207C7 /* BSBodyLabel.swift */; };
 		A5DD2C4025FCBC700078F916 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD2C3F25FCBC700078F916 /* AppDelegate.swift */; };
 		A5DD2C4225FCBC700078F916 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD2C4125FCBC700078F916 /* SceneDelegate.swift */; };
 		A5DD2C4925FCBC700078F916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5DD2C4825FCBC700078F916 /* Assets.xcassets */; };
@@ -38,6 +43,11 @@
 /* Begin PBXFileReference section */
 		A533FC2F2602C27E00A207C7 /* BSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSButton.swift; sourceTree = "<group>"; };
 		A533FC3F2602C4E300A207C7 /* BSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTextField.swift; sourceTree = "<group>"; };
+		A533FCA72602F55E00A207C7 /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
+		A533FCAD2602FB4A00A207C7 /* BSAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSAlertContainerView.swift; sourceTree = "<group>"; };
+		A533FCB32602FC0D00A207C7 /* BSAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSAlertViewController.swift; sourceTree = "<group>"; };
+		A533FCBC2602FC5E00A207C7 /* BSTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTitleLabel.swift; sourceTree = "<group>"; };
+		A533FCC42602FE6C00A207C7 /* BSBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSBodyLabel.swift; sourceTree = "<group>"; };
 		A5DD2C3C25FCBC700078F916 /* BookSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD2C3F25FCBC700078F916 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5DD2C4125FCBC700078F916 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +91,9 @@
 		A533FC2E2602C26600A207C7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				A533FCBB2602FC4200A207C7 /* Labels */,
+				A533FCB22602FBEE00A207C7 /* ViewControllers */,
+				A533FCAC2602FB2000A207C7 /* Views */,
 				A533FC3E2602C47D00A207C7 /* TextField */,
 				A533FC342602C28100A207C7 /* Buttons */,
 			);
@@ -101,6 +114,31 @@
 				A533FC3F2602C4E300A207C7 /* BSTextField.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		A533FCAC2602FB2000A207C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A533FCAD2602FB4A00A207C7 /* BSAlertContainerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A533FCB22602FBEE00A207C7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A533FCB32602FC0D00A207C7 /* BSAlertViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A533FCBB2602FC4200A207C7 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				A533FCBC2602FC5E00A207C7 /* BSTitleLabel.swift */,
+				A533FCC42602FE6C00A207C7 /* BSBodyLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		A5DD2C3325FCBC700078F916 = {
@@ -167,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				A5DD2C8625FCC25E0078F916 /* SearchViewController.swift */,
+				A533FCA72602F55E00A207C7 /* BookListViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -300,11 +339,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A533FCAE2602FB4A00A207C7 /* BSAlertContainerView.swift in Sources */,
 				A533FC402602C4E300A207C7 /* BSTextField.swift in Sources */,
+				A533FCB42602FC0D00A207C7 /* BSAlertViewController.swift in Sources */,
 				A5DD2C8725FCC25E0078F916 /* SearchViewController.swift in Sources */,
 				A5DD2C4025FCBC700078F916 /* AppDelegate.swift in Sources */,
 				A533FC302602C27E00A207C7 /* BSButton.swift in Sources */,
 				A5DD2C4225FCBC700078F916 /* SceneDelegate.swift in Sources */,
+				A533FCC52602FE6C00A207C7 /* BSBodyLabel.swift in Sources */,
+				A533FCA82602F55E00A207C7 /* BookListViewController.swift in Sources */,
+				A533FCBD2602FC5E00A207C7 /* BSTitleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

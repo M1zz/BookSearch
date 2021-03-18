@@ -34,6 +34,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        booknameTextField.text = ""
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -46,14 +47,19 @@ class SearchViewController: UIViewController {
     
     @objc func pushBookListViewController() {
         guard isBooknameEntered else {
-            print("Error!")
+            DispatchQueue.main.async {
+                let alertViewController = BSAlertViewController(title: "책 이름이 비어있습니다", message: "책 이름을 넣어주세요", buttonTitle: "확인")
+                alertViewController.modalPresentationStyle = .overFullScreen
+                alertViewController.modalTransitionStyle = .crossDissolve
+                self.present(alertViewController, animated: true)
+            }
             return
         }
         
         booknameTextField.resignFirstResponder()
         
-//        let bookListViewController = BookListViewController()
-//        navigationController?.pushViewController(bookListViewController, animated: true)
+        let bookListViewController = BookListViewController(bookname: booknameTextField.text!)
+        navigationController?.pushViewController(bookListViewController, animated: true)
     }
     
     
@@ -99,5 +105,8 @@ class SearchViewController: UIViewController {
 
 
 extension SearchViewController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        pushBookListViewController()
+        return true
+    }
 }
