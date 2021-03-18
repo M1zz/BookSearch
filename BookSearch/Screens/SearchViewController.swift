@@ -31,8 +31,6 @@ class SearchViewController: UIViewController {
         configureTextField()
         configureSearchActionButton()
         createDismissKeyboardTapGusture()
-//        title = "검색"
-//        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     

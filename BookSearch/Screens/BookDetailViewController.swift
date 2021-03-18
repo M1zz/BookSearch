@@ -11,6 +11,8 @@ class BookDetailViewController: UIViewController {
 
     var isbn13: String!
     
+    var bookDetailView = BookDetailView(frame: .zero)
+    
     init(isbn13: String) {
         super.init(nibName: nil, bundle: nil)
         self.isbn13 = isbn13
@@ -24,7 +26,30 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        // Do any additional setup after loading the view.
+        getBookDetail(for: isbn13)
+        configureBookDetailView()
+    }
+    
+    
+    private func configureBookDetailView() {
+        view.addSubview(bookDetailView)
+        bookDetailView.pintoEdges(of: view)
+    }
+    
+    
+    private func getBookDetail(for isbn13: String) {
+        NetworkManager.shared.getBookDetail(for: isbn13) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let bookDetail):
+                DispatchQueue.main.async {
+                    print("bookDetail : \(bookDetail)")
+                    self.bookDetailView.set(with: bookDetail)
+                }
+            case .failure(let error):
+                print(error.rawValue)
+            }
+        }
     }
 }

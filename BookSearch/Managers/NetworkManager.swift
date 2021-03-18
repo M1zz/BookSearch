@@ -16,8 +16,8 @@ class NetworkManager {
     
     private init() {}
     
-    func getBookLists(for bookname: String, page: Int, completed: @escaping (Result<[Book], BSError>) -> Void) {
-        let endpoint = baseURL + "search/\(bookname)"
+    func getBookLists(for bookname: String, page: Int, completed: @escaping (Result<SearchResult, BSError>) -> Void) {
+        let endpoint = baseURL + "search/\(bookname)/\(page)"
         
         guard let url = URL(string: endpoint) else {
             completed(.failure(.invalidBookname))
@@ -42,9 +42,46 @@ class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                //decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let bookList = try decoder.decode(SearchResult.self, from: data)
-                completed(.success(bookList.books))
+                completed(.success(bookList))
+            } catch {
+                completed(.failure(.invalidData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+    func getBookDetail(for isbn13: String, completed: @escaping (Result<BookDetail, BSError>) -> Void) {
+        let endpoint = baseURL + "books/\(isbn13)"
+        
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.invalidBookname))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completed(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+
+                let bookDetail = try decoder.decode(BookDetail.self, from: data)
+                completed(.success(bookDetail))
             } catch {
                 completed(.failure(.invalidData))
             }

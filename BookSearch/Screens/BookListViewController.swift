@@ -18,7 +18,9 @@ class BookListViewController: UIViewController {
     var bookname: String!
     var booklist: [Book] = []
     var hasMoreBook = true
-    
+    var page = 1
+    var isLoadingMoreBooks = false
+    var resultCount: Int = 0
 
     init(bookname: String) {
         super.init(nibName: nil, bundle: nil)
@@ -37,7 +39,7 @@ class BookListViewController: UIViewController {
         
         configureViewController()
         configureTableView()
-        getBookLists(bookname: bookname, page: 1)
+        getBookLists(bookname: bookname, page: page)
     }
     
     
@@ -77,24 +79,27 @@ class BookListViewController: UIViewController {
     }
     
     private func getBookLists(bookname: String, page: Int) {
+        isLoadingMoreBooks = true
         NetworkManager.shared.getBookLists(for: bookname, page: page) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
-            case .success(let booklist):
-                self.updateUI(with: booklist)
-                self.booklist = booklist
+            case .success(let searchResult):
+                self.resultCount = Int(searchResult.total) ?? 0
+                self.updateUI(with: searchResult.books)
             case .failure(let error):
                 //self.presentGFAlertOnMainThread(title: "문제가 생겼습니다.", message: error.rawValue, buttonTitle: "Ok")
                 print(error.rawValue)
             }
+            
+            self.isLoadingMoreBooks = true
         }
     }
     
     
     private func updateUI(with booklist: [Book]) {
-        let maxCount = 100
-        if booklist.count < maxCount { self.hasMoreBook = false }
+        if booklist.count > resultCount { self.hasMoreBook = false }
+        self.booklist.append(contentsOf: booklist)
         
         if booklist.isEmpty {
             // 검색 결과 없음
@@ -110,9 +115,11 @@ class BookListViewController: UIViewController {
 
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return booklist.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BookCell.reuseID) as! BookCell
@@ -122,6 +129,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let book = booklist[indexPath.row]
         let destinationViewController = BookDetailViewController(isbn13: book.isbn13)
@@ -129,6 +137,19 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(destinationViewController, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard hasMoreBook else { return } //, !isLoadingMoreBooks
+            page += 1
+            getBookLists(bookname: bookname, page: page)
+        }
     }
     
     
