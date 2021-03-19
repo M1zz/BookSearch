@@ -69,11 +69,11 @@ class BookListViewController: UIViewController {
         tableView.rowHeight = 150
         tableView.delegate = self
         tableView.dataSource = self
-//        if #available(iOS 13.0, *) {
-//            tableView.backgroundColor = .systemBackground
-//        } else {
-//            tableView.backgroundColor = .white
-//        }
+        if #available(iOS 13.0, *) {
+            tableView.backgroundColor = .systemBackground
+        } else {
+            tableView.backgroundColor = .white
+        }
         //tableView.removeExcessCells()
         tableView.register(BookCell.self, forCellReuseIdentifier: BookCell.reuseID)
     }

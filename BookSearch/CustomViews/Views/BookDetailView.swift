@@ -56,38 +56,80 @@ class BookDetailView: UIView {
         addSubview(priceLabel)
         addSubview(urlLabel)
         
+        subtitleLabel.numberOfLines = 0
+        
         let padding: CGFloat = 20
         
         NSLayoutConstraint.activate([
             thumnailImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             thumnailImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
-            thumnailImageView.heightAnchor.constraint(equalToConstant: 140),
-            thumnailImageView.widthAnchor.constraint(equalToConstant: 120),
+            thumnailImageView.heightAnchor.constraint(equalToConstant: 280),
+            thumnailImageView.widthAnchor.constraint(equalToConstant: 240),
             
             titleLabel.topAnchor.constraint(equalTo: thumnailImageView.bottomAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             titleLabel.heightAnchor.constraint(equalToConstant: 20),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            subtitleLabel.leadingAnchor.constraint(equalTo: thumnailImageView.trailingAnchor, constant: 24),
+            subtitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             subtitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             subtitleLabel.heightAnchor.constraint(equalToConstant: 20),
-
-            isbn13Label.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20),
-            isbn13Label.leadingAnchor.constraint(equalTo: thumnailImageView.trailingAnchor, constant: 24),
+            
+            authorsLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20),
+            authorsLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            authorsLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            authorsLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            publisherLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 20),
+            publisherLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            publisherLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            publisherLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            languageLabel.topAnchor.constraint(equalTo: publisherLabel.bottomAnchor, constant: 20),
+            languageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            languageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            languageLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            isbn10Label.topAnchor.constraint(equalTo: languageLabel.bottomAnchor, constant: 20),
+            isbn10Label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            isbn10Label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            isbn10Label.heightAnchor.constraint(equalToConstant: 20),
+            
+            isbn13Label.topAnchor.constraint(equalTo: isbn10Label.bottomAnchor, constant: 20),
+            isbn13Label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             isbn13Label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             isbn13Label.heightAnchor.constraint(equalToConstant: 20),
-
-            priceLabel.topAnchor.constraint(equalTo: isbn13Label.bottomAnchor, constant: 20),
-            priceLabel.leadingAnchor.constraint(equalTo: thumnailImageView.trailingAnchor, constant: 24),
+            
+            pagesLabel.topAnchor.constraint(equalTo: isbn13Label.bottomAnchor, constant: 20),
+            pagesLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            pagesLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            pagesLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            yearLabel.topAnchor.constraint(equalTo: pagesLabel.bottomAnchor, constant: 20),
+            yearLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            yearLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            yearLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            ratingLabel.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 20),
+            ratingLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            ratingLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            ratingLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            descLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 20),
+            descLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            descLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            descLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            priceLabel.topAnchor.constraint(equalTo: descLabel.bottomAnchor, constant: 20),
+            priceLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             priceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             priceLabel.heightAnchor.constraint(equalToConstant: 20),
-
+            
             urlLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 20),
-            urlLabel.leadingAnchor.constraint(equalTo: thumnailImageView.trailingAnchor, constant: 24),
+            urlLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             urlLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
-            urlLabel.heightAnchor.constraint(equalToConstant: 20)
+            urlLabel.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
     
@@ -95,11 +137,17 @@ class BookDetailView: UIView {
         thumnailImageView.downloadThumbnailImage(fromURL: bookDetail.image)
         titleLabel.text = bookDetail.title
         subtitleLabel.text = bookDetail.subtitle
-        
+        authorsLabel.text = bookDetail.authors
+        publisherLabel.text = bookDetail.publisher
+        languageLabel.text = bookDetail.language
+        isbn10Label.text = bookDetail.isbn10
         isbn13Label.text = bookDetail.isbn13
+        pagesLabel.text = bookDetail.pages
+        yearLabel.text = bookDetail.year
+        ratingLabel.text = bookDetail.rating
+        descLabel.text = bookDetail.desc
         priceLabel.text = bookDetail.price
         urlLabel.text = bookDetail.url
-        print(titleLabel.text)
     }
     
 }

@@ -26,13 +26,20 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getBookDetail(for: isbn13)
+        
         configureBookDetailView()
+        getBookDetail(for: isbn13)
+        
     }
     
     
     private func configureBookDetailView() {
         view.addSubview(bookDetailView)
+        if #available(iOS 13.0, *) {
+            bookDetailView.backgroundColor = .systemBackground
+        } else {
+            bookDetailView.backgroundColor = .white
+        }
         bookDetailView.pintoEdges(of: view)
     }
     
