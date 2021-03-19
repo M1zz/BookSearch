@@ -12,6 +12,8 @@ class BookDetailViewController: UIViewController {
     var isbn13: String!
     
     var bookDetailView = BookDetailView(frame: .zero)
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     
     init(isbn13: String) {
         super.init(nibName: nil, bundle: nil)
@@ -26,21 +28,46 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureScrollView()
         
-        configureBookDetailView()
         getBookDetail(for: isbn13)
         
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = false
+        }
+    }
+    
+    
     private func configureBookDetailView() {
-        view.addSubview(bookDetailView)
+//        view.addSubview(bookDetailView)
+        bookDetailView.pintoEdges(of: scrollView)
         if #available(iOS 13.0, *) {
             bookDetailView.backgroundColor = .systemBackground
         } else {
             bookDetailView.backgroundColor = .white
         }
-        bookDetailView.pintoEdges(of: view)
+        
+        NSLayoutConstraint.activate([
+            bookDetailView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            bookDetailView.heightAnchor.constraint(equalToConstant: 1000)
+        ])
+        
+    }
+    
+    
+    private func configureScrollView() {
+        view.addSubview(scrollView)
+        scrollView.addSubview(bookDetailView)
+        scrollView.pintoEdges(of: view)
+        configureBookDetailView()
+        
+        
     }
     
     

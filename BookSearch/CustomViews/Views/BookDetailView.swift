@@ -57,12 +57,13 @@ class BookDetailView: UIView {
         addSubview(urlLabel)
         
         subtitleLabel.numberOfLines = 0
+        descLabel.numberOfLines = 0
         
         let padding: CGFloat = 20
         
         NSLayoutConstraint.activate([
             thumnailImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            thumnailImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+            thumnailImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             thumnailImageView.heightAnchor.constraint(equalToConstant: 280),
             thumnailImageView.widthAnchor.constraint(equalToConstant: 240),
             
@@ -119,7 +120,6 @@ class BookDetailView: UIView {
             descLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 20),
             descLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             descLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
-            descLabel.heightAnchor.constraint(equalToConstant: 20),
             
             priceLabel.topAnchor.constraint(equalTo: descLabel.bottomAnchor, constant: 20),
             priceLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
@@ -129,7 +129,7 @@ class BookDetailView: UIView {
             urlLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 20),
             urlLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             urlLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
-            urlLabel.heightAnchor.constraint(equalToConstant: 20),
+            urlLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
@@ -137,17 +137,17 @@ class BookDetailView: UIView {
         thumnailImageView.downloadThumbnailImage(fromURL: bookDetail.image)
         titleLabel.text = bookDetail.title
         subtitleLabel.text = bookDetail.subtitle
-        authorsLabel.text = bookDetail.authors
-        publisherLabel.text = bookDetail.publisher
-        languageLabel.text = bookDetail.language
-        isbn10Label.text = bookDetail.isbn10
-        isbn13Label.text = bookDetail.isbn13
-        pagesLabel.text = bookDetail.pages
-        yearLabel.text = bookDetail.year
-        ratingLabel.text = bookDetail.rating
-        descLabel.text = bookDetail.desc
-        priceLabel.text = bookDetail.price
-        urlLabel.text = bookDetail.url
+        authorsLabel.text = "authors : \(bookDetail.authors)"
+        publisherLabel.text = "publisher : \(bookDetail.publisher)"
+        languageLabel.text = "language : \(bookDetail.language)"
+        isbn10Label.text = "isbn10 : \(bookDetail.isbn10)"
+        isbn13Label.text = "isbn13 : \(bookDetail.isbn13)"
+        pagesLabel.text = "pages : \(bookDetail.pages)"
+        yearLabel.text = "year : \(bookDetail.year)"
+        ratingLabel.text = "rating : \(bookDetail.rating)"
+        descLabel.text = "desc : \(bookDetail.desc)"
+        priceLabel.text = "price : \(bookDetail.price)"
+        urlLabel.text = "url : \(bookDetail.url)"
     }
     
 }
