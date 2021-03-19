@@ -84,14 +84,13 @@ class BookListViewController: BSDataLoadingViewController {
         NetworkManager.shared.getBookLists(for: bookname, page: page) { [weak self] result in
             guard let self = self else { return }
             
-            
             switch result {
             case .success(let searchResult):
                 self.resultCount = Int(searchResult.total) ?? 0
                 self.updateUI(with: searchResult.books)
                 self.dissmissLoadingView()
             case .failure(let error):
-                //self.presentGFAlertOnMainThread(title: "문제가 생겼습니다.", message: error.rawValue, buttonTitle: "Ok")
+                self.presentBSAlertOnMainThread(title: "문제가 생겼습니다.", message: error.rawValue, buttonTitle: "Ok")
                 print(error.rawValue)
             }
             

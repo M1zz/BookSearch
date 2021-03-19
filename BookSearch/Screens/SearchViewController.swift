@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     let logoImageView = UIImageView()
     let booknameTextField = BSTextField()
     let searchActionButton = BSButton(backgroundColor: .systemPink, title: "검색")
-    
+
     var isBooknameEntered: Bool { return !booknameTextField.text!.isEmpty }
     
     override func viewDidLoad() {
@@ -22,7 +22,6 @@ class SearchViewController: UIViewController {
         } else {
             view.backgroundColor = .white
         }
-        
         
         view.addSubviews(logoImageView, booknameTextField, searchActionButton)
         configureLogoImageView()
@@ -47,12 +46,7 @@ class SearchViewController: UIViewController {
     
     @objc func pushBookListViewController() {
         guard isBooknameEntered else {
-            DispatchQueue.main.async {
-                let alertViewController = BSAlertViewController(title: "책 이름이 비어있습니다", message: "책 이름을 넣어주세요", buttonTitle: "확인")
-                alertViewController.modalPresentationStyle = .overFullScreen
-                alertViewController.modalTransitionStyle = .crossDissolve
-                self.present(alertViewController, animated: true)
-            }
+            presentBSAlertOnMainThread(title: "책 이름이 비어있습니다", message: "책 이름을 넣어주세요", buttonTitle: "확인")
             return
         }
         
@@ -68,21 +62,19 @@ class SearchViewController: UIViewController {
         
         logoImageView.image = UIImage(named: "bookSearchLogo")
         
+        var imageViewTopAnchor: NSLayoutYAxisAnchor
         if #available(iOS 11.0, *) {
-            NSLayoutConstraint.activate([
-                logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-                logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                logoImageView.heightAnchor.constraint(equalToConstant: 200),
-                logoImageView.widthAnchor.constraint(equalToConstant: 200)
-            ])
+            imageViewTopAnchor = view.safeAreaLayoutGuide.topAnchor
         } else {
-            NSLayoutConstraint.activate([
-                logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
-                logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                logoImageView.heightAnchor.constraint(equalToConstant: 200),
-                logoImageView.widthAnchor.constraint(equalToConstant: 200)
-            ])
+            imageViewTopAnchor = view.topAnchor
         }
+        
+        NSLayoutConstraint.activate([
+            logoImageView.topAnchor.constraint(equalTo: imageViewTopAnchor, constant: 80),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageView.heightAnchor.constraint(equalToConstant: 200),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200)
+        ])
     }
     
     
@@ -103,21 +95,19 @@ class SearchViewController: UIViewController {
         searchActionButton.addTarget(self, action: #selector(pushBookListViewController), for: .touchUpInside)
         
         let padding: CGFloat = 50
+        var searchActionButtonBottomAnchor: NSLayoutYAxisAnchor
         if #available(iOS 11.0, *) {
-            NSLayoutConstraint.activate([
-                searchActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
-                searchActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-                searchActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-                searchActionButton.heightAnchor.constraint(equalToConstant: 50)
-            ])
+            searchActionButtonBottomAnchor = view.safeAreaLayoutGuide.bottomAnchor
         } else {
-            NSLayoutConstraint.activate([
-                searchActionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
-                searchActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-                searchActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-                searchActionButton.heightAnchor.constraint(equalToConstant: 50)
-            ])
+            searchActionButtonBottomAnchor = view.bottomAnchor
         }
+        
+        NSLayoutConstraint.activate([
+            searchActionButton.bottomAnchor.constraint(equalTo: searchActionButtonBottomAnchor, constant: -padding),
+            searchActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            searchActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            searchActionButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }
 

@@ -15,6 +15,7 @@ class BookDetailViewController: BSDataLoadingViewController {
     let scrollView = UIScrollView()
     let contentView = UIView()
     
+    
     init(isbn13: String) {
         super.init(nibName: nil, bundle: nil)
         self.isbn13 = isbn13
@@ -31,7 +32,6 @@ class BookDetailViewController: BSDataLoadingViewController {
         configureScrollView()
         
         getBookDetail(for: isbn13)
-        
     }
     
     
@@ -56,7 +56,6 @@ class BookDetailViewController: BSDataLoadingViewController {
             bookDetailView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             bookDetailView.heightAnchor.constraint(equalToConstant: 1000)
         ])
-        
     }
     
     
@@ -81,7 +80,7 @@ class BookDetailViewController: BSDataLoadingViewController {
                     self.dissmissLoadingView()
                 }
             case .failure(let error):
-                print(error.rawValue)
+                self.presentBSAlertOnMainThread(title: "문제가 생겼습니다.", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
