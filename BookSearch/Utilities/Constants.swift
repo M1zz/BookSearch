@@ -5,7 +5,7 @@
 //  Created by 이현호 on 2021/03/19.
 //
 
-import Foundation
+import UIKit
 
 enum Images {
     static let bsLogo = UIImage(named: "bookSearchLogo")

@@ -78,12 +78,12 @@ class BookDetailView: UIView {
             NSLayoutConstraint.activate([
                 itemView.topAnchor.constraint(equalTo: previousItemView.bottomAnchor, constant: 20),
                 itemView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
-                itemView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+                itemView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding)
             ])
             
             if itemView != descLabel {
                 NSLayoutConstraint.activate([
-                    itemView.heightAnchor.constraint(equalToConstant: 20),
+                    itemView.heightAnchor.constraint(equalToConstant: 20)
                 ])
             }
             

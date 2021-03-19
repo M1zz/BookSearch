@@ -156,6 +156,4 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
             getBookLists(bookname: bookname, page: page)
         }
     }
-    
-    
 }
