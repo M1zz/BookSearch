@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookListViewController: UIViewController {
+class BookListViewController: BSDataLoadingViewController {
 
     enum Section {
         case main
@@ -79,9 +79,11 @@ class BookListViewController: UIViewController {
     }
     
     private func getBookLists(bookname: String, page: Int) {
+        showLoadingView()
         isLoadingMoreBooks = true
         NetworkManager.shared.getBookLists(for: bookname, page: page) { [weak self] result in
             guard let self = self else { return }
+            self.dissmissLoadingView()
             
             switch result {
             case .success(let searchResult):

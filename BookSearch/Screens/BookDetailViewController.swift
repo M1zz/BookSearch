@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: BSDataLoadingViewController {
 
     var isbn13: String!
     
@@ -72,8 +72,10 @@ class BookDetailViewController: UIViewController {
     
     
     private func getBookDetail(for isbn13: String) {
+        showLoadingView()
         NetworkManager.shared.getBookDetail(for: isbn13) { [weak self] result in
             guard let self = self else { return }
+            self.dissmissLoadingView()
             
             switch result {
             case .success(let bookDetail):
