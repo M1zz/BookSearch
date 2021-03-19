@@ -55,7 +55,7 @@ class BSEmptyStateView: UIView {
     
     
     private func configurelogoImageView() {
-        logoImageView.image = UIImage(named: "bookSearchLogo")
+        logoImageView.image = Images.emptyStateLogo
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
             
         NSLayoutConstraint.activate([

@@ -27,8 +27,8 @@
 		A533FD2D26044B3300A207C7 /* BSDataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FD2C26044B3300A207C7 /* BSDataLoadingViewController.swift */; };
 		A533FD322604655800A207C7 /* BSEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FD312604655800A207C7 /* BSEmptyStateView.swift */; };
 		A533FD372604692600A207C7 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FD362604692600A207C7 /* UITableView+Ext.swift */; };
-		A533FD3D26046CC200A207C7 /* BSAttibutedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FD3C26046CC200A207C7 /* BSAttibutedTextView.swift */; };
 		A533FD9B2604914F00A207C7 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FD9A2604914F00A207C7 /* UIViewController+Ext.swift */; };
+		A533FDA3260497AB00A207C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A533FDA2260497AB00A207C7 /* Constants.swift */; };
 		A5DD2C4025FCBC700078F916 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD2C3F25FCBC700078F916 /* AppDelegate.swift */; };
 		A5DD2C4225FCBC700078F916 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD2C4125FCBC700078F916 /* SceneDelegate.swift */; };
 		A5DD2C4925FCBC700078F916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5DD2C4825FCBC700078F916 /* Assets.xcassets */; };
@@ -76,8 +76,8 @@
 		A533FD2C26044B3300A207C7 /* BSDataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSDataLoadingViewController.swift; sourceTree = "<group>"; };
 		A533FD312604655800A207C7 /* BSEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSEmptyStateView.swift; sourceTree = "<group>"; };
 		A533FD362604692600A207C7 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
-		A533FD3C26046CC200A207C7 /* BSAttibutedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSAttibutedTextView.swift; sourceTree = "<group>"; };
 		A533FD9A2604914F00A207C7 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		A533FDA2260497AB00A207C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5DD2C3C25FCBC700078F916 /* BookSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DD2C3F25FCBC700078F916 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5DD2C4125FCBC700078F916 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +121,6 @@
 		A533FC2E2602C26600A207C7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				A533FD3B26046C9200A207C7 /* TextView */,
 				A533FD052603732300A207C7 /* ImageViews */,
 				A533FCF42603728E00A207C7 /* Cells */,
 				A533FCBB2602FC4200A207C7 /* Labels */,
@@ -189,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				A533FCD32603161D00A207C7 /* BSError.swift */,
+				A533FDA2260497AB00A207C7 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -227,14 +227,6 @@
 				A533FD9A2604914F00A207C7 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A533FD3B26046C9200A207C7 /* TextView */ = {
-			isa = PBXGroup;
-			children = (
-				A533FD3C26046CC200A207C7 /* BSAttibutedTextView.swift */,
-			);
-			path = TextView;
 			sourceTree = "<group>";
 		};
 		A5DD2C3325FCBC700078F916 = {
@@ -440,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A533FDA3260497AB00A207C7 /* Constants.swift in Sources */,
 				A533FD372604692600A207C7 /* UITableView+Ext.swift in Sources */,
 				A533FD072603735400A207C7 /* BSThumbnailImageView.swift in Sources */,
 				A533FCAE2602FB4A00A207C7 /* BSAlertContainerView.swift in Sources */,
@@ -447,7 +440,6 @@
 				A533FCB42602FC0D00A207C7 /* BSAlertViewController.swift in Sources */,
 				A533FD1426039B3700A207C7 /* BookDetailView.swift in Sources */,
 				A533FCD42603161D00A207C7 /* BSError.swift in Sources */,
-				A533FD3D26046CC200A207C7 /* BSAttibutedTextView.swift in Sources */,
 				A533FD01260372DD00A207C7 /* BookCell.swift in Sources */,
 				A533FD322604655800A207C7 /* BSEmptyStateView.swift in Sources */,
 				A5DD2C8725FCC25E0078F916 /* SearchViewController.swift in Sources */,

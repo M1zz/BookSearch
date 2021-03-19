@@ -60,7 +60,7 @@ class SearchViewController: UIViewController {
     private func configureLogoImageView() {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        logoImageView.image = UIImage(named: "bookSearchLogo")
+        logoImageView.image = Images.bsLogo
         
         var imageViewTopAnchor: NSLayoutYAxisAnchor
         if #available(iOS 11.0, *) {

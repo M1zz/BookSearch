@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookDetailViewController: BSDataLoadingViewController {
+final class BookDetailViewController: BSDataLoadingViewController {
 
     var isbn13: String!
     

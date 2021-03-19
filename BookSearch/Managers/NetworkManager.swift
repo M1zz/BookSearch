@@ -11,8 +11,6 @@ class NetworkManager {
     static let shared = NetworkManager()
     let baseURL = "https://api.itbook.store/1.0/"
     let cache = NSCache<NSString, UIImage>()
-    // search https://api.itbook.store/1.0/search/{query}/{page}
-    // detail https://api.itbook.store/1.0/books/{isbn13}
     
     private init() {}
     
@@ -48,7 +46,6 @@ class NetworkManager {
                 completed(.failure(.invalidData))
             }
         }
-        
         task.resume()
     }
     
@@ -86,7 +83,6 @@ class NetworkManager {
                 completed(.failure(.invalidData))
             }
         }
-        
         task.resume()
     }
     
@@ -113,9 +109,7 @@ class NetworkManager {
                 completed(nil)
                 return
             }
-            
             self.cache.setObject(image, forKey: cacheKey)
-            
             completed(image)
         }
         

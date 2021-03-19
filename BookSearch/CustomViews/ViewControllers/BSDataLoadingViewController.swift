@@ -10,7 +10,6 @@ import UIKit
 class BSDataLoadingViewController: UIViewController {
 
     var containerView: UIView!
-
     
     func showLoadingView() {
         containerView = UIView(frame: view.bounds)
@@ -36,7 +35,6 @@ class BSDataLoadingViewController: UIViewController {
         }
         
         containerView.addSubview(activityIndicator)
-        
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -46,6 +44,7 @@ class BSDataLoadingViewController: UIViewController {
         
         activityIndicator.startAnimating()
     }
+    
     
     func dissmissLoadingView() {
         DispatchQueue.main.async {

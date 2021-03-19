@@ -21,7 +21,6 @@ class BookCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         configure()
     }
     
@@ -33,7 +32,6 @@ class BookCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         thumnailImageView.image = nil
     }
     

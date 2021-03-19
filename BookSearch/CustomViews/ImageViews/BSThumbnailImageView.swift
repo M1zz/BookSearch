@@ -9,7 +9,8 @@ import UIKit
 
 class BSThumbnailImageView: UIImageView {
     
-    let placeholderImage = UIImage(named: "bookSearchLogo")
+    let placeholderImage = Images.placeholer
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

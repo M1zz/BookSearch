@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookListViewController: BSDataLoadingViewController {
+final class BookListViewController: BSDataLoadingViewController {
 
     enum Section {
         case main
