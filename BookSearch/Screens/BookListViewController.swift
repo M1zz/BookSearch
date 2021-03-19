@@ -74,7 +74,7 @@ class BookListViewController: BSDataLoadingViewController {
         } else {
             tableView.backgroundColor = .white
         }
-        //tableView.removeExcessCells()
+        tableView.removeExcessCells()
         tableView.register(BookCell.self, forCellReuseIdentifier: BookCell.reuseID)
     }
     
@@ -83,12 +83,13 @@ class BookListViewController: BSDataLoadingViewController {
         isLoadingMoreBooks = true
         NetworkManager.shared.getBookLists(for: bookname, page: page) { [weak self] result in
             guard let self = self else { return }
-            self.dissmissLoadingView()
+            
             
             switch result {
             case .success(let searchResult):
                 self.resultCount = Int(searchResult.total) ?? 0
                 self.updateUI(with: searchResult.books)
+                self.dissmissLoadingView()
             case .failure(let error):
                 //self.presentGFAlertOnMainThread(title: "문제가 생겼습니다.", message: error.rawValue, buttonTitle: "Ok")
                 print(error.rawValue)
@@ -104,7 +105,10 @@ class BookListViewController: BSDataLoadingViewController {
         self.booklist.append(contentsOf: booklist)
         
         if booklist.isEmpty {
-            // 검색 결과 없음
+            let message = "검색 결과가 없습니다. 다른 책 이름을 검색해주세요 😁"
+            DispatchQueue.main.async {
+                self.showEmptyStateView(with: message, in: self.view)
+            }
             return
         } else {
             DispatchQueue.main.async {

@@ -75,13 +75,13 @@ class BookDetailViewController: BSDataLoadingViewController {
         showLoadingView()
         NetworkManager.shared.getBookDetail(for: isbn13) { [weak self] result in
             guard let self = self else { return }
-            self.dissmissLoadingView()
             
             switch result {
             case .success(let bookDetail):
                 DispatchQueue.main.async {
                     print("bookDetail : \(bookDetail)")
                     self.bookDetailView.set(with: bookDetail)
+                    self.dissmissLoadingView()
                 }
             case .failure(let error):
                 print(error.rawValue)

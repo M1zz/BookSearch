@@ -53,4 +53,11 @@ class BSDataLoadingViewController: UIViewController {
             self.containerView = nil
         }
     }
+    
+    
+    func showEmptyStateView(with message: String, in view: UIView) {
+        let emptyStateView = BSEmptyStateView(message: message)
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
+    }
 }
