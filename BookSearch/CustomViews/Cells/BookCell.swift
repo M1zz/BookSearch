@@ -31,6 +31,12 @@ class BookCell: UITableViewCell {
     }
     
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        thumnailImageView.image = nil
+    }
+    
     func set(book: Book) {
         thumnailImageView.downloadThumbnailImage(fromURL: book.image)
         titleLabel.text = book.title
