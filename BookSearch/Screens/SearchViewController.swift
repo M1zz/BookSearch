@@ -23,10 +23,8 @@ class SearchViewController: UIViewController {
             view.backgroundColor = .white
         }
         
-        view.addSubview(logoImageView)
-        view.addSubview(booknameTextField)
-        view.addSubview(searchActionButton)
         
+        view.addSubviews(logoImageView, booknameTextField, searchActionButton)
         configureLogoImageView()
         configureTextField()
         configureSearchActionButton()
@@ -41,7 +39,7 @@ class SearchViewController: UIViewController {
     }
     
     
-    func createDismissKeyboardTapGusture() {
+    private func createDismissKeyboardTapGusture() {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }

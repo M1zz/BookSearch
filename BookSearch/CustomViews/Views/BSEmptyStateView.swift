@@ -30,8 +30,7 @@ class BSEmptyStateView: UIView {
     
     
     private func configure() {
-        addSubview(messageLabel)
-        addSubview(logoImageView)
+        addSubviews(messageLabel, logoImageView)
         
         configureMessageLabel()
         configurelogoImageView()

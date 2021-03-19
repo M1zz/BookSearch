@@ -35,10 +35,7 @@ class BSAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
-        view.addSubview(containerView)
-        view.addSubview(titleLabel)
-        view.addSubview(actionButton)
-        view.addSubview(messageLabel)
+        view.addSubviews(containerView, titleLabel, actionButton, messageLabel)
         
         configureContainerView()
         configureTitleLabel()

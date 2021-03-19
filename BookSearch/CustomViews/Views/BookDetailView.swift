@@ -42,20 +42,12 @@ class BookDetailView: UIView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(thumnailImageView)
-        addSubview(titleLabel)
-        addSubview(subtitleLabel)
-        addSubview(authorsLabel)
-        addSubview(publisherLabel)
-        addSubview(languageLabel)
-        addSubview(isbn10Label)
-        addSubview(isbn13Label)
-        addSubview(pagesLabel)
-        addSubview(yearLabel)
-        addSubview(ratingLabel)
-        addSubview(descLabel)
-        addSubview(priceLabel)
-        addSubview(urlLabel)
+        addSubviews(thumnailImageView, titleLabel, subtitleLabel,
+                    authorsLabel, publisherLabel, languageLabel,
+                    isbn10Label, isbn13Label, pagesLabel,
+                    yearLabel, ratingLabel, descLabel,
+                    priceLabel, urlLabel
+        )
         
         subtitleLabel.numberOfLines = 0
         descLabel.numberOfLines = 0

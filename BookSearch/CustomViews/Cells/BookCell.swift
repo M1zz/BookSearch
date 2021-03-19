@@ -48,12 +48,7 @@ class BookCell: UITableViewCell {
     
     
     private func configure() {
-        addSubview(thumnailImageView)
-        addSubview(titleLabel)
-        addSubview(subtitleLabel)
-        addSubview(isbn13Label)
-        addSubview(priceLabel)
-        addSubview(urlLabel)
+        addSubviews(thumnailImageView, titleLabel, subtitleLabel, isbn13Label, priceLabel, urlLabel)
         
         let padding: CGFloat = 20
         
