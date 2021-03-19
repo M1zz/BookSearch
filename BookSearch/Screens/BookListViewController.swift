@@ -104,7 +104,7 @@ class BookListViewController: BSDataLoadingViewController {
         if booklist.count > resultCount { self.hasMoreBook = false }
         self.booklist.append(contentsOf: booklist)
         
-        if booklist.isEmpty {
+        if booklist.isEmpty, page == 1 {
             let message = "검색 결과가 없습니다. 다른 책 이름을 검색해주세요 😁"
             DispatchQueue.main.async {
                 self.showEmptyStateView(with: message, in: self.view)

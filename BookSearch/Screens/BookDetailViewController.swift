@@ -45,14 +45,13 @@ class BookDetailViewController: BSDataLoadingViewController {
     
     
     private func configureBookDetailView() {
-//        view.addSubview(bookDetailView)
         bookDetailView.pintoEdges(of: scrollView)
         if #available(iOS 13.0, *) {
             bookDetailView.backgroundColor = .systemBackground
         } else {
             bookDetailView.backgroundColor = .white
         }
-        
+
         NSLayoutConstraint.activate([
             bookDetailView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             bookDetailView.heightAnchor.constraint(equalToConstant: 1000)
@@ -66,8 +65,6 @@ class BookDetailViewController: BSDataLoadingViewController {
         scrollView.addSubview(bookDetailView)
         scrollView.pintoEdges(of: view)
         configureBookDetailView()
-        
-        
     }
     
     

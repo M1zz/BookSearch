@@ -10,6 +10,7 @@ import UIKit
 class BookDetailView: UIView {
 
     var isbn13: String!
+    var webLink: String = ""
     
     let thumnailImageView = BSThumbnailImageView(frame: .zero)
     let titleLabel = BSTitleLabel(textAlignment: .center, fontSize: 20)
@@ -25,7 +26,7 @@ class BookDetailView: UIView {
     let descLabel = BSBodyLabel(textAlignment: .center)
     let priceLabel = BSBodyLabel(textAlignment: .center)
     let urlLabel = BSBodyLabel(textAlignment: .center)
-
+    //let urlLabel = UITextView(frame: .zero, textContainer: .none)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -58,6 +59,10 @@ class BookDetailView: UIView {
         
         subtitleLabel.numberOfLines = 0
         descLabel.numberOfLines = 0
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openWeb))
+        urlLabel.isUserInteractionEnabled = true
+        urlLabel.addGestureRecognizer(tapGesture)
         
         let padding: CGFloat = 20
         
@@ -147,7 +152,29 @@ class BookDetailView: UIView {
         ratingLabel.text = "rating : \(bookDetail.rating)"
         descLabel.text = "desc : \(bookDetail.desc)"
         priceLabel.text = "price : \(bookDetail.price)"
+        
+        makeOpenableLink(for: bookDetail.url)
         urlLabel.text = "url : \(bookDetail.url)"
+    }
+    
+    
+    
+    private func makeOpenableLink(for link: String) {
+        let attributedString = NSMutableAttributedString(string: link)
+        attributedString.addAttribute(.link, value: link, range: NSRange(location: 0, length: link.count))
+        webLink = link
+        urlLabel.attributedText = attributedString
+    }
+    
+    @objc private func openWeb() {
+        
+        if let url = URL(string: webLink) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:])
+            } else {
+                
+            }
+        }
     }
     
 }
