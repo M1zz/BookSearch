@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  BookSearch
+
+  Created by 이현호 on 2021/03/21.
+  
+*/
+"확인" = "OK";
+"책 이름을 넣어주세요" = "Please put the name of the book";
+"책 이름이 비어있습니다" = "The book name is empty";
+"검색 결과가 없습니다. 다른 책 이름을 검색해주세요 😁" = "No results were found for your search. Please search for another book name 😁";
+"검색" = "Search";
+"책 제목을 입력해주세요" = "Please enter the book title";

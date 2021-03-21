@@ -11,7 +11,7 @@ class SearchViewController: UIViewController {
 
     let logoImageView = UIImageView()
     let booknameTextField = BSTextField()
-    let searchActionButton = BSButton(backgroundColor: .systemPink, title: "검색")
+    let searchActionButton = BSButton(backgroundColor: .systemPink, title: "검색".localized())
 
     var isBooknameEntered: Bool { return !booknameTextField.text!.isEmpty }
     
@@ -46,7 +46,9 @@ class SearchViewController: UIViewController {
     
     @objc func pushBookListViewController() {
         guard isBooknameEntered else {
-            presentBSAlertOnMainThread(title: "책 이름이 비어있습니다", message: "책 이름을 넣어주세요", buttonTitle: "확인")
+            presentBSAlertOnMainThread(title: "책 이름이 비어있습니다".localized(),
+                                       message: "책 이름을 넣어주세요".localized(),
+                                       buttonTitle: "확인".localized())
             return
         }
         

@@ -90,7 +90,9 @@ final class BookListViewController: BSDataLoadingViewController {
                 self.updateUI(with: searchResult.books)
                 self.dissmissLoadingView()
             case .failure(let error):
-                self.presentBSAlertOnMainThread(title: "문제가 생겼습니다.", message: error.rawValue, buttonTitle: "Ok")
+                self.presentBSAlertOnMainThread(title: "책 이름이 비어있습니다".localized(),
+                                                message: error.rawValue,
+                                                buttonTitle: "확인".localized())
                 print(error.rawValue)
             }
             

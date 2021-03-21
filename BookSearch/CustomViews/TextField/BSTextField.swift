@@ -52,6 +52,6 @@ class BSTextField: UITextField {
         autocorrectionType = .no
         returnKeyType = .go
         clearButtonMode = .whileEditing
-        placeholder = "책 제목을 입력해주세요"
+        placeholder = "책 제목을 입력해주세요".localized()
     }
 }
